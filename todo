@@ -1,0 +1,223 @@
+[KDE]
+	software manager > preferences
+		> use mirrors from > australia
+		> third party > enable AUR support
+	settings
+		> appearance
+			> colours
+			> plasma style: breath
+
+KEEPASSXC
+	$ sudo pacman -Syu keepassxc
+	open $win/Documents/misc/Database.kdbx
+
+DOTFILES
+    install [ARCH]
+        sudo pacman -S stow
+        git clone https://github.com/darccyy/dotfiles ~/dotfiles
+        cd ~/dotfiles
+        stow */
+
+WINDSCRIBE
+	install [ARCH]
+		https://windscribe.com/install/desktop/linux_zst_x64
+		sudo pacman -U ...
+	settings
+		disable firewall ?
+		...
+
+KDOCKER
+	install [ARCH]
+		yay -S kdocker
+
+SPOTIFY
+	spotify-launcher
+		install [ARCH]
+			sudo pacman -S spotify-launcher
+		kdocker
+			nvim .local/share/applications/spotify-launcher.desktop
+				Exec=kdocker -loq -i /usr/share/icons/hicolor/64x64/apps/spotify-launcher.png -d 10 spotify-launcher %U
+	spotify (not launcher)
+		install
+			yay -S spotify
+		kdocker
+			nvim .local/share/applications/spotify.desktop
+				Exec=kdocker -loq -i /usr/share/icons/hicolor/64x64/apps/spotify.png -d 10 spotify %U
+		patch download ?
+			https://aur.archlinux.org/packages/spotify
+	tui
+		install [MANJARO]
+			...
+
+FONTS
+	fira code nerd font
+		https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.2/FiraCode.zip
+
+RUNCOM
+	$ nvim ~/.zshrc
+		copy from ./rc
+
+(bad) MOUNT WINDOWS ON BOOT [MANJARO]
+	$ cd /etc/fstab /etc/fstab.original
+	$ kwrite /etc/fstab
+		/dev/nvme0n1p3 /run/media/darcy/Windows-SSD ntfs defaults 0 0
+
+SHORTCUTS
+	media controller
+		play/pause				Ctrl+\
+		pause					Ctrl+|
+		next					Ctrl+}
+		previous				Ctrl+{
+	custom [KDE]
+		Open Konsole			Meta+Enter		konsole
+		Bluetooth: Connect		Meta+B			sh bin/bt connect
+		Bluetooth: Disconnect	Meta+Shift+B	sh bin/bt disconnect
+		Toggle Thunderbird		Meta+M			sh bin/toggle-focus 'Mozilla\sThunderbird'
+		Garfield				Meta+G			sh bin/garf -r
+		Conservation mode		Meta+C			sh bin/consv gui
+
+AUTOSTART
+	apps
+		spotify (kdocker)
+		thunderbird (kdocker)
+		windscribe
+	custom
+		~/bin/bt connect
+
+LIBREWOLF
+	install [ARCH]
+		yay -S librewolf-bin
+	settings
+		sync
+		device name
+		download location
+	cttab
+		setup
+			https://github.com/darccyy/cttab#open-on-new-tab-offline-
+		new window also
+	extensions
+		must
+			ublock-origin
+			darkreader
+			duplicate_tab
+			add-custom-search-engine
+			redirector
+			user-agent-string-switcher
+			markdown-viewer-webext
+		maybe
+			privacy-badger17
+			canvasblocker
+			decentraleyes
+			istilldontcareaboutcookies
+			adblock-for-youtube
+			sponsorblock
+		idk
+			vimium-c
+			readability-based-reader-view
+			spoof-timezone
+			tab-retitle
+		broken
+			compass-tasks
+			kahoot-name-length
+	cookie exceptions
+		file:///
+		github.com
+		lilydaleheights-vic.compass.education
+		youtube.com
+		lms.vsvonline.vic.edu.au
+		discord.com
+		chat.openai.com
+	search engines
+			SearX			https://search.cronobox.one/search?q=%s
+		g	DuckDuckGo		-
+		gg	Google			-
+		w	Wikipedia		-
+		d	Dictionary		https://en.wiktionary.org/wiki/%s
+		t	Thesaurus		https://www.thesaurus.com/browse/%s	 	https://www.thesaurus.com/0d297be7e698b98c9da8.png
+		e	Esperanto		https://glosbe.com/en/eo/%s
+	other
+		allow chatgpt
+			useragent exception
+  markdown
+		with markdown-viewer-webext
+    $ nvim ~/.local/share/mime/packages/text-markdown.xml
+      <?xml version="1.0"?>
+      <mime-info xmlns='http://www.freedesktop.org/standards/shared-mime-info'>
+        <mime-type type="text/plain">
+          <glob pattern="*.md"/>
+          <glob pattern="*.mkd"/>
+          <glob pattern="*.markdown"/>
+        </mime-type>
+      </mime-info>
+    $ update-mime-database ~/.local/share/mime
+
+
+SCHOOL INTERNET
+	add network
+		EAP Method			PEAP
+		Certificate			Do Not Check
+		Identity				dabur9@schools.vic.edu.au
+		Password				Wombat.7825
+		Anonymous Identity	(blank)
+	proxy: automatic url
+		https://byod.lilydaleheights.vic.edu.au/byod-chromebook.pac
+	windscribe
+		Stealth 8443
+
+THUNDERBIRD
+	kdocker
+		...
+
+NEOVIM
+	install
+		sudo pacman -S base-devel libtool m4 autoconf cmake unzip ninja tree-sitter
+		cd Downloads
+		git clone https://github.com/neovim/neovim.git
+		cd neovim
+		make CMAKE_BUILD_TYPE=RelWithDebInfo
+		sudo make install
+		nvim --version
+	astronvim
+		mv ~/.config/nvim ~/.config/nvim.bak
+		git clone --depth 1 https://github.com/AstroNvim/AstroNvim ~/.config/nvim
+		nvim
+
+CHANGE DEFAULT FILE PICKER
+	nvim ~/.profile
+		GTK_USE_PORTAL=1
+	https://askubuntu.com/questions/1150404/kubuntu-18-10-how-do-i-change-this-file-picker
+
+RUST
+	curl https://sh.rustup.rs | sh
+	rustup component add rust-analyzer
+	cargo install cargo-watch cargo-generate just
+
+ESPERANTO [KDE]
+	settings > input devices > keyboard > layouts
+		> check configure layouts
+		> add > esperanto
+	remove runner Alt+Space shortcut
+
+PHP [ARCH]
+	sudo pacman -S php apache php-apache
+	sudo nvim /etc/httpd/conf/httpd.conf
+		https://wiki.archlinux.org/title/Apache_HTTP_Server#PHP
+		ServerName http://127.0.0.1:80
+	sudo nvim /etc/php/php.ini
+		uncomment `display_errors`, `display_startup_errors`, `error_reporting`, `html_errors`
+		sudo systemctl restart httpd
+
+QBITTORRENT
+	install [ARCH]
+		sudo pacman -S qbittorrent
+	config
+		preferences
+			> downloads
+				> append .!qB extension
+				> default save path
+			> bittorrent
+				> enable anonymous mode
+			> advanced
+				> network interface: tun0 (or trial/error from bottom) (windscribe killswitch)
+
+
