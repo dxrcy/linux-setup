@@ -53,10 +53,6 @@ FONTS
 	fira code nerd font
 		https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.2/FiraCode.zip
 
-RUNCOM
-	$ nvim ~/.zshrc
-		copy from ./rc
-
 (bad) MOUNT WINDOWS ON BOOT [MANJARO]
 	$ cd /etc/fstab /etc/fstab.original
 	$ kwrite /etc/fstab

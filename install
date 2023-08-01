@@ -1,0 +1,50 @@
+#!/bin/sh
+
+# Update system
+yay
+
+# Pacman
+sudo pacman -S \
+    neovim \
+    stow \
+    starship \
+    keepassxc \
+    alacritty \
+    exa \
+    bat \
+    tmux \
+    ranger \
+    spotify-launcher \
+    php apache php-apache \
+    qbittorrent
+
+# Dotfiles
+git clone https://github.com/darccyy/dotfiles ~/dotfiles
+cd ~/dotfiles
+stow */
+
+# Scripts
+git clone https://github.com/darccyy/scripts ~/scripts
+
+# Zsh plugins manually
+git clone https://github.com/zsh-users/zsh-autosuggestions     ~/.zsh/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.zsh/zsh-syntax-highlighting
+
+# Yay
+yay -S \
+    libre-wolf-bin
+
+# Rust with rustup
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
+# Install with cargo
+cargo install \
+    just \
+    cargo-watch
+
+# Windscribe
+# https://windscribe.com/install/desktop/linux_zst_x64
+
+# Fira code nerd font
+# https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.2/FiraCode.zip
+
