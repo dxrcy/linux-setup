@@ -5,6 +5,7 @@ sudo pacman -Syu
 
 # Pacman
 sudo pacman -S \
+    zsh \
     neovim \
     stow \
     starship \
@@ -19,10 +20,13 @@ sudo pacman -S \
     qbittorrent \
     trash-cli
 
+# Switch to zsh
+chsh -s $(which zsh)
+
 # Dotfiles
 git clone https://github.com/darccyy/dotfiles ~/dotfiles
 cd ~/dotfiles
-stow */ --force
+stow */
 
 # Scripts
 git clone https://github.com/darccyy/scripts ~/scripts
@@ -30,10 +34,9 @@ git clone https://github.com/darccyy/scripts ~/scripts
 # Tmux tpm
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
-
 # Yay
 yay -S \
-    libre-wolf-bin
+    librewolf-bin
 
 # Rust with rustup
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
