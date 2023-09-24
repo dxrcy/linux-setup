@@ -18,7 +18,15 @@ sudo pacman -S \
     spotify-launcher \
     php apache php-apache \
     qbittorrent \
-    trash-cli
+    zoxide \
+    trash-cli \
+    go \
+    github-cli \
+    kdocker \
+    thunderbird \
+    inkscape \
+    gimp \
+    paru
 
 # Switch to zsh
 chsh -s $(which zsh)
@@ -35,7 +43,7 @@ git clone https://github.com/darccyy/scripts ~/scripts
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 # Yay
-yay -S \
+paru -S \
     librewolf-bin
 
 # Rust with rustup
@@ -50,5 +58,5 @@ cargo install \
 # https://windscribe.com/install/desktop/linux_zst_x64
 
 # Fira code nerd font
-# https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.2/FiraCode.zip
+sudo pacman -S ttf-firacode-nerd
 
