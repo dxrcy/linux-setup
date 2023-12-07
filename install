@@ -15,7 +15,6 @@ sudo pacman -S \
     bat \
     tmux \
     ranger \
-    spotify-launcher \
     php apache php-apache \
     qbittorrent \
     zoxide \
@@ -44,7 +43,8 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 # Yay
 paru -S \
-    librewolf-bin
+    librewolf-bin \
+    spotify
 
 # Rust with rustup
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh

@@ -1,0 +1,26 @@
+Install Network Manager
+    sudo pacman -S network-manager nm-connection-editor
+
+Add network
+    Run `nm-connection-editor` (GUI)
+    Select `eduSTAR`
+        > Wi-fi Security
+            - Security             = WPA/WPA2 Enterprise
+            - Authentication       = PEAP
+            - Anonymous identity   = (leave blank)
+            - Domain               = (leave blank)
+            - Check 'No CA certificate is required'
+            - Inner Authentication = MSCHAPv2
+            - Username             = (email from BYOD, ending in @schools.vic.edu.au)
+            - Password             = (password from BYOD)
+        > Proxy
+            - Method = Automatic
+            -- url OR script --
+            - PAC URL = https://byod.lilydaleheights.vic.edu.au/byod-chromebook.pac
+            - PAC script: Import `proxy.pac`
+
+VPN:
+    Windscribe
+        Protocol: Stealth
+        Port: 8443
+

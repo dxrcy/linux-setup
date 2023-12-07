@@ -118,9 +118,7 @@ LIBREWOLF
 	cookie exceptions
 		file:///
 		github.com
-		lilydaleheights-vic.compass.education
 		youtube.com
-		lms.vsvonline.vic.edu.au
 		discord.com
 		chat.openai.com
 	search engines
@@ -147,18 +145,6 @@ LIBREWOLF
       </mime-info>
     $ update-mime-database ~/.local/share/mime
 
-
-SCHOOL INTERNET
-	add network
-		EAP Method			PEAP
-		Certificate			Do Not Check
-		Identity				dabur9@schools.vic.edu.au
-		Password				Wombat.7825
-		Anonymous Identity	(blank)
-	proxy: automatic url
-		https://byod.lilydaleheights.vic.edu.au/byod-chromebook.pac
-	windscribe
-		Stealth 8443
 
 THUNDERBIRD
 	kdocker
