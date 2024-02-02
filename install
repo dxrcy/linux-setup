@@ -31,12 +31,12 @@ sudo pacman -S \
 chsh -s $(which zsh)
 
 # Dotfiles
-git clone https://github.com/darccyy/dotfiles ~/dotfiles
+git clone https://github.com/dxrcy/dotfiles ~/dotfiles
 cd ~/dotfiles
 stow */
 
 # Scripts
-git clone https://github.com/darccyy/scripts ~/scripts
+git clone https://github.com/dxrcy/scripts ~/scripts
 
 # Tmux tpm
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm

@@ -14,7 +14,7 @@ KEEPASSXC
 DOTFILES
     install [ARCH]
         sudo pacman -S stow
-        git clone https://github.com/darccyy/dotfiles ~/dotfiles
+        git clone https://github.com/dxrcy/dotfiles ~/dotfiles
         cd ~/dotfiles
         stow */
 
@@ -89,7 +89,7 @@ LIBREWOLF
 		download location
 	cttab
 		setup
-			https://github.com/darccyy/cttab#open-on-new-tab-offline-
+			https://github.com/dxrcy/cttab#open-on-new-tab-offline-
 		new window also
 	extensions
 		must
